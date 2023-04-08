@@ -1,0 +1,5 @@
+package edu.estu.recipeapp.entity;
+
+public enum Tag {
+    VEGETARIAN, VEGAN, GLUTEN_FREE, DAIRY_FREE, NUT_FREE, EGG_FREE, SOY_FREE, PEANUT_FREE, TREE_NUT_FREE, FISH_FREE, SHELLFISH_FREE
+}
