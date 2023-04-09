@@ -27,7 +27,7 @@ public class RecipeController {
 
     @GetMapping("/recipes")
     public String recipes(Model model) {
-        model.addAttribute("recipes", recipeService.createRecipes());
+        model.addAttribute("recipes", recipeService.getRecipes());
         return "recipes";
     }
 

@@ -1,20 +1,26 @@
 package edu.estu.recipeapp.service;
 
 import edu.estu.recipeapp.entity.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Getter
+@Setter
 public class RecipeService {
     private List<Recipe> recipes;
 
     public RecipeService() {
-        recipes = new ArrayList<>();
+        recipes = createRecipes();
     }
 
     public List<Recipe> createRecipes() {
+        recipes = new ArrayList<>();
 
         Ingredient flour = new Ingredient("flour", 1, Unit.CUP);
         Ingredient sugar = new Ingredient("sugar", 1, Unit.CUP);
@@ -37,7 +43,8 @@ public class RecipeService {
         return recipes;
     }
 
-    public void addRecipe(Recipe recipe) {
+    public Recipe addRecipe(Recipe recipe) {
         recipes.add(recipe);
+        return recipe;
     }
 }
