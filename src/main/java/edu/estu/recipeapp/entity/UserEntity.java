@@ -18,6 +18,8 @@ public class UserEntity {
     private String email;
     private String password;
 
+    private String userType;
+
     @OneToMany
     private List<RecipeEntity> favorites;
 
