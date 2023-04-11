@@ -1,10 +1,7 @@
 package edu.estu.recipeapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
@@ -13,19 +10,26 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class UserEntity {
-    private String fullName;
     @Id
+    @Column(updatable = false)
     private String email;
+
+    @Column(nullable = false)
+    private String fullName;
+
+    @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
     private String userType;
 
     @OneToMany
     private List<RecipeEntity> favorites;
 
-    public UserEntity(String fullName, String email, String password) {
+    public UserEntity(String fullName, String email, String password, String userType) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
+        this.userType = userType;
     }
 }
