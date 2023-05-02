@@ -11,3 +11,4 @@ import java.util.List;
 public interface RecipeRepository extends JpaRepository<RecipeEntity, Long> {
     List<RecipeEntity> findByName(String name);
 }
+
