@@ -21,7 +21,6 @@ public class RecipeEntity {
     @Column(nullable = false)
     private String name;
 
-
     @Column(columnDefinition = "TEXT", nullable = false)
     private String description;
 

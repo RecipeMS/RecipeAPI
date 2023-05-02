@@ -54,6 +54,7 @@ public class DataUtils {
         kebab.addIngredient(new IngredientEntity("Bread", 0.5, Unit.HALF));
         kebab.addIngredient(new IngredientEntity("Sauce", 0.1, Unit.LITER));
 
+
         // Create ice cream recipe
         RecipeEntity iceCream = new RecipeEntity("Ice Cream", "Ice cream is a sweetened frozen food typically eaten as a snack or dessert. It is usually made from dairy products, such as milk and cream, and often combined with fruits or other ingredients and flavours.", 1);
         iceCream.addCategory(Category.DESSERT);
@@ -76,14 +77,23 @@ public class DataUtils {
         pizza.addIngredient(new IngredientEntity("Cheese", 0.5, Unit.KILOGRAM));
         pizza.addIngredient(new IngredientEntity("Pepperoni", 0.5, Unit.KILOGRAM));
 
+
         // save ingredients to the database
         ingredientRepository.saveAll(kebab.getIngredients());
         ingredientRepository.saveAll(iceCream.getIngredients());
         ingredientRepository.saveAll(pizza.getIngredients());
 
+
         // Save the recipes to the database
         recipeRepository.save(kebab);
         recipeRepository.save(iceCream);
         recipeRepository.save(pizza);
+
+        user1.addFavorite(kebab);
+        user1.addFavorite(iceCream);
+        user2.addFavorite(iceCream);
+
+        userRepository.save(user1);
+        userRepository.save(user2);
     }
 }
