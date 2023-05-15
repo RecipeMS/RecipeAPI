@@ -1,9 +1,5 @@
 package edu.estu.recipeapp;
 
-import edu.estu.recipeapp.entity.*;
-import edu.estu.recipeapp.repository.IngredientRepository;
-import edu.estu.recipeapp.repository.RecipeRepository;
-import edu.estu.recipeapp.repository.UserRepository;
 import edu.estu.recipeapp.utils.DataUtils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

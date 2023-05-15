@@ -12,6 +12,10 @@ import java.util.List;
 @Entity
 public class UserEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false)
+    private Long id;
+
     @Column(updatable = false)
     private String email;
 

@@ -24,19 +24,20 @@ public class RecipeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String description;
 
+
     @Column(nullable = false)
     private int size;
 
     @OneToMany
-    private final List<IngredientEntity> ingredients = new LinkedList<>();
+    private List<IngredientEntity> ingredients = new LinkedList<>();
 
     @ElementCollection(targetClass = Category.class)
     @Enumerated(EnumType.STRING)
-    private final Set<Category> categories = new HashSet<>(3);
+    private Set<Category> categories = new HashSet<>(3);
 
     @ElementCollection(targetClass = Tag.class)
     @Enumerated(EnumType.STRING)
-    private final Set<Tag> tags = new HashSet<>(3);
+    private Set<Tag> tags = new HashSet<>(3);
 
     public RecipeEntity(String name, String description, int size) {
         this.name = name;
@@ -68,5 +69,7 @@ public class RecipeEntity {
     public void removeTag(Tag tag) {
         this.tags.remove(tag);
     }
+
+
 }
 

@@ -4,11 +4,7 @@ import edu.estu.recipeapp.entity.RecipeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import java.util.List;
-
 @RepositoryRestResource(path = "recipes")
-
 public interface RecipeRepository extends JpaRepository<RecipeEntity, Long> {
-    List<RecipeEntity> findByName(String name);
 }
 
