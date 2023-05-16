@@ -23,7 +23,7 @@ public class IngredientController {
 
 
     @PostMapping
-    public IngredientEntity createIngredient(IngredientEntity ingredient) {
+    public IngredientEntity createIngredient(@RequestBody IngredientEntity ingredient) {
         return ingredientRepository.save(ingredient);
     }
 
@@ -33,7 +33,7 @@ public class IngredientController {
     }
 
     @PutMapping("/{ingredientId}")
-    public IngredientEntity updateIngredient(@PathVariable Long ingredientId, IngredientEntity ingredient) {
+    public IngredientEntity updateIngredient(@PathVariable Long ingredientId,@RequestBody IngredientEntity ingredient) {
         Optional<IngredientEntity> ingredientOptional = ingredientRepository.findById(ingredientId);
         if (ingredientOptional.isPresent()) {
             IngredientEntity ingredientEntity = ingredientOptional.get();

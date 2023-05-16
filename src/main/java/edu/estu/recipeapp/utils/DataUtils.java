@@ -46,12 +46,12 @@ public class DataUtils {
         kebab.addCategory(Category.DINNER);
         kebab.addTag(Tag.HOT);
         kebab.addTag(Tag.SPICY);
-        kebab.addTag(Tag.HALAL);
+        kebab.addTag(Tag.HARD);
         kebab.addIngredient(new IngredientEntity("Meat", 0.3, Unit.KILOGRAM));
         kebab.addIngredient(new IngredientEntity("Onion", 0.5, Unit.PIECE));
         kebab.addIngredient(new IngredientEntity("Tomato", 1, Unit.PIECE));
         kebab.addIngredient(new IngredientEntity("Lettuce", 1, Unit.PIECE));
-        kebab.addIngredient(new IngredientEntity("Bread", 0.5, Unit.HALF));
+        kebab.addIngredient(new IngredientEntity("Bread", 0.5, Unit.KILOGRAM));
         kebab.addIngredient(new IngredientEntity("Sauce", 0.1, Unit.LITER));
 
 

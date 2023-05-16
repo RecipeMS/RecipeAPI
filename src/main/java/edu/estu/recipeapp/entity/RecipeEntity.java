@@ -21,7 +21,7 @@ public class RecipeEntity {
     @Column(nullable = false)
     private String name;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(nullable = false)
     private String description;
 
 
@@ -33,11 +33,11 @@ public class RecipeEntity {
 
     @ElementCollection(targetClass = Category.class)
     @Enumerated(EnumType.STRING)
-    private Set<Category> categories = new HashSet<>(3);
+    private Set<Category> categories = new HashSet<>();
 
     @ElementCollection(targetClass = Tag.class)
     @Enumerated(EnumType.STRING)
-    private Set<Tag> tags = new HashSet<>(3);
+    private Set<Tag> tags = new HashSet<>();
 
     public RecipeEntity(String name, String description, int size) {
         this.name = name;
