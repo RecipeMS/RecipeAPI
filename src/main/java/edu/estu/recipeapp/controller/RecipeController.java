@@ -1,16 +1,12 @@
 package edu.estu.recipeapp.controller;
 
-import edu.estu.recipeapp.entity.Category;
 import edu.estu.recipeapp.entity.IngredientEntity;
 import edu.estu.recipeapp.entity.RecipeEntity;
-import edu.estu.recipeapp.entity.Tag;
 import edu.estu.recipeapp.repository.RecipeRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @RestController()
 @RequestMapping("/recipes")
@@ -47,13 +43,20 @@ public class RecipeController {
     }
 
     @PutMapping("/{recipeId}")
-    public RecipeEntity updateRecipe(@PathVariable Long recipeId,@RequestBody RecipeEntity recipe) {
+    public RecipeEntity updateRecipe(@PathVariable Long recipeId, @RequestBody RecipeEntity recipe) {
         Optional<RecipeEntity> recipeOptional = recipeRepository.findById(recipeId);
         if (recipeOptional.isPresent()) {
             RecipeEntity recipeEntity = recipeOptional.get();
             recipeEntity.setName(recipe.getName());
             recipeEntity.setDescription(recipe.getDescription());
             recipeEntity.setSize(recipe.getSize());
+
+            List<IngredientEntity> ingredients = recipe.getIngredients();
+
+            for (IngredientEntity ingredient : ingredients) {
+                ingredientController.createIngredient(ingredient);
+            }
+
             recipeEntity.setIngredients(recipe.getIngredients());
             recipeEntity.setTags(recipe.getTags());
             recipeEntity.setCategories(recipe.getCategories());
